@@ -1,63 +1,98 @@
-Microservices
-1. BasketAPI
-Description : Gestion du panier d'achat des utilisateurs.
-Fonctionnalités :
-Ajouter, modifier et supprimer des articles.
-Suivi en temps réel du panier.
-📂 Chemin : BasketAPI/
+# **Microservices E-commerce**
 
-2. OrderingAPI
-Description : Gestion des commandes utilisateurs.
-Fonctionnalités :
-Créer et suivre les commandes.
-Mettre à jour les statuts des commandes.
-Intégration avec des systèmes de paiement.
-📂 Chemin : OrderingAPI/
+Ce projet est un exemple d'architecture Microservices pour un système E-commerce. Il est composé de deux microservices principaux :
 
-Technologies Utilisées
-ASP.NET Core : Framework pour les microservices.
-Docker : Conteneurisation des services.
-RabbitMQ : Bus de messages pour la communication entre services.
-Swagger : Documentation des APIs.
-Screenshots
-BasketAPI - Gestion du Panier
+- **Basket API** : Gestion des paniers d'achat.  
+- **Ordering API** : Gestion des commandes.  
 
-OrderingAPI - Gestion des Commandes
+Il utilise **RabbitMQ** comme broker de messages pour la communication entre services et propose des interfaces documentées avec **Swagger**.
 
-RabbitMQ - Connexions
+---
 
-Swagger - BasketAPI
+## **Table des matières**
 
-Swagger - OrderingAPI
+- **📸 Screenshots**
+- **⚙️ Architecture**
+- **🛠️ Microservices**
+- **🔧 Technologies utilisées**
+- **🚀 Instructions d'installation**
+- **📧 Contact**
 
-Instructions d'installation
-Cloner le repo :
+---
 
-bash
-Copy code
+## **📸 Screenshots**
+
+### **Gestion du Panier - BasketAPI**  
+![img13](https://github.com/user-attachments/assets/9faced87-3c3c-4df3-9b12-8dbf3822790a)
+
+
+### **Commandes - OrderingAPI**  
+![img14](https://github.com/user-attachments/assets/57c66076-ba32-4295-8637-2afdfd5dd38c)
+
+
+### **RabbitMQ - Connexions**  
+![img15](https://github.com/user-attachments/assets/b3882743-2ed8-4b90-b604-fcdd1944fdf5)
+
+
+### **Swagger - Basket API**  
+![img16](https://github.com/user-attachments/assets/bbcb4b82-dfc0-4ae0-a15c-6c189b27c92c)
+
+
+### **Swagger - Ordering API**  
+![img17](https://github.com/user-attachments/assets/8d536a87-b64c-4de9-a7ec-45a95a51b128)
+
+
+
+## **⚙️ Architecture**
+
+L'architecture est divisée en deux microservices indépendants :  
+
+- **Basket API** : Responsable de la gestion du panier.  
+- **Ordering API** : Responsable des commandes.  
+
+Les services communiquent via **RabbitMQ**.
+
+---
+
+## **🛠️ Microservices**
+
+### **Basket API**  
+- **URL** : `http://localhost:5120/swagger`  
+- **Fonctionnalités** :  
+   - Ajouter des articles au panier.  
+   - Modifier la quantité des articles.  
+   - Supprimer un article du panier.  
+
+- **Endpoints Swagger** :  
+   - `GET /Basket` : Obtenir le panier.  
+   - `POST /Basket/updateQuantity/{productId}`  
+   - `DELETE /Basket/removeItem/{productId}`  
+
+---
+
+### **Ordering API**  
+- **URL** : `http://localhost:5126/swagger`  
+- **Fonctionnalités** :  
+   - Voir l'état des commandes.  
+   - Traiter les commandes existantes.  
+
+- **Endpoints Swagger** :  
+   - `GET /Order` : Liste des commandes.  
+
+---
+
+## **🔧 Technologies Utilisées**
+
+- **ASP.NET Core** : Développement des APIs.  
+- **RabbitMQ** : Message Broker pour communication inter-services.  
+- **Swagger** : Documentation des APIs.  
+- **Docker** : Optionnel pour la conteneurisation.  
+
+---
+
+## **🚀 Instructions d'installation**
+
+### **Clone le repo** :
+```bash
 git clone https://github.com/CHAABI-Amal/Microservices_Ecommerce.git
 cd Microservices_Ecommerce
-Exécuter les Microservices :
-
-BasketAPI :
-bash
-Copy code
-cd BasketAPI
-dotnet run
-OrderingAPI :
-bash
-Copy code
-cd OrderingAPI
-dotnet run
-Démarrer RabbitMQ :
-Assurez-vous que RabbitMQ est installé localement.
-
-Accéder aux APIs :
-
-BasketAPI Swagger : http://localhost:5120/swagger
-OrderingAPI Swagger : http://localhost:5126/swagger
-Contact
-CHAABI Amal
-
-GitHub : CHAABI-Amal
-Email : example@email.com
